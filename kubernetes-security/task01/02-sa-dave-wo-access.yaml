@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dave
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: wo-access
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dave-wo-access
+subjects:
+- kind: ServiceAccount
+  name: dave
+  namespace: default
+roleRef:
+  kind: Role
+  name: wo-access
+  apiGroup: rbac.authorization.k8s.io
