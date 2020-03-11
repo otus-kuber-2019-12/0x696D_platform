@@ -1,0 +1,9 @@
+commonLabels:
+  prometheus: default
+
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+  serviceMonitorSelector:
+    matchLabels:
+      prometheus: default
